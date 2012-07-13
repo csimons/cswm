@@ -1,7 +1,6 @@
-/* (C)opyright MMVI-MMVII Anselm R. Garbe <garbeam at gmail dot com>
- * See LICENSE file for license details.
- */
-#include "2wm.h"
+/* Copyright 2006-2007 Anselm R. Garbe <garbeam at gmail dot com> */
+
+#include "cswm.h"
 #include <stdlib.h>
 #include <X11/keysym.h>
 #include <X11/Xatom.h>

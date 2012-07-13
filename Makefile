@@ -1,15 +1,12 @@
-# 2wm - stereo window manager
-#   (C)opyright MMVII Anselm R. Garbe
-
 include config.mk
 
 SRC = client.c event.c main.c util.c view.c
 OBJ = ${SRC:.c=.o}
 
-all: options 2wm
+all: options cswm
 
 options:
-	@echo 2wm build options:
+	@echo cswm build options:
 	@echo "CFLAGS   = ${CFLAGS}"
 	@echo "LDFLAGS  = ${LDFLAGS}"
 	@echo "CC	   = ${CC}"
@@ -18,40 +15,40 @@ options:
 	@echo CC $<
 	@${CC} -c ${CFLAGS} $<
 
-${OBJ}: 2wm.h config.mk
+${OBJ}: cswm.h config.mk
 
-2wm: ${OBJ}
+cswm: ${OBJ}
 	@echo CC -o $@
 	@${CC} -o $@ ${OBJ} ${LDFLAGS}
 	@strip $@
 
 clean:
 	@echo cleaning
-	@rm -f 2wm ${OBJ} 2wm-${VERSION}.tar.gz
+	@rm -f cswm ${OBJ} cswm-${VERSION}.tar.gz
 
 dist: clean
 	@echo creating dist tarball
-	@mkdir -p 2wm-${VERSION}
+	@mkdir -p cswm-${VERSION}
 	@cp -R LICENSE Makefile README config.*.h config.mk \
-		2wm.1 2wm.h ${SRC} 2wm-${VERSION}
-	@tar -cf 2wm-${VERSION}.tar 2wm-${VERSION}
-	@gzip 2wm-${VERSION}.tar
-	@rm -rf 2wm-${VERSION}
+		cswm.1 cswm.h ${SRC} cswm-${VERSION}
+	@tar -cf cswm-${VERSION}.tar cswm-${VERSION}
+	@gzip cswm-${VERSION}.tar
+	@rm -rf cswm-${VERSION}
 
 install: all
 	@echo installing executable file to ${DESTDIR}${PREFIX}/bin
 	@mkdir -p ${DESTDIR}${PREFIX}/bin
-	@cp -f 2wm ${DESTDIR}${PREFIX}/bin
-	@chmod 755 ${DESTDIR}${PREFIX}/bin/2wm
+	@cp -f cswm ${DESTDIR}${PREFIX}/bin
+	@chmod 755 ${DESTDIR}${PREFIX}/bin/cswm
 	@echo installing manual page to ${DESTDIR}${MANPREFIX}/man1
 	@mkdir -p ${DESTDIR}${MANPREFIX}/man1
-	@sed 's/VERSION/${VERSION}/g' < 2wm.1 > ${DESTDIR}${MANPREFIX}/man1/2wm.1
-	@chmod 644 ${DESTDIR}${MANPREFIX}/man1/2wm.1
+	@sed 's/VERSION/${VERSION}/g' < cswm.1 > ${DESTDIR}${MANPREFIX}/man1/cswm.1
+	@chmod 644 ${DESTDIR}${MANPREFIX}/man1/cswm.1
 
 uninstall:
 	@echo removing executable file from ${DESTDIR}${PREFIX}/bin
-	@rm -f ${DESTDIR}${PREFIX}/bin/2wm
+	@rm -f ${DESTDIR}${PREFIX}/bin/cswm
 	@echo removing manual page from ${DESTDIR}${MANPREFIX}/man1
-	@rm -f ${DESTDIR}${MANPREFIX}/man1/2wm.1
+	@rm -f ${DESTDIR}${MANPREFIX}/man1/cswm.1
 
 .PHONY: all options clean dist install uninstall
