@@ -2,6 +2,9 @@
  * See LICENSE file for license details.
  */
 
+#define CMD_TERMINAL "st"
+#define CMD_BROWSER  "firefox"
+
 #define BORDERPX    2
 #define NORMCOLOR   "#666"
 #define SELCOLOR    "#f00"
@@ -17,8 +20,8 @@
 #define KEYS \
 static Key key[] = { \
    /* modifier          key         function    argument */ \
-    { MODKEY|ShiftMask, XK_t,       spawn,      { .cmd = "exec st" } }, \
-    { MODKEY|ShiftMask, XK_w,       spawn,      { .cmd = "exec firefox" } }, \
+    { MODKEY|ShiftMask, XK_t,       spawn,      { .cmd = CMD_TERMINAL } }, \
+    { MODKEY|ShiftMask, XK_w,       spawn,      { .cmd = CMD_BROWSER  } }, \
     { MODKEY,           XK_j,       focusnext,  { 0 } }, \
     { MODKEY,           XK_k,       focusprev,  { 0 } }, \
     { MODKEY|ShiftMask, XK_q,       quit,       { 0 } }, \
