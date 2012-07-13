@@ -1,6 +1,4 @@
-/* (C)opyright MMVII Anselm R. Garbe <garbeam at gmail dot com>
- * See LICENSE file for license details.
- */
+/* Copyright 2007 Anselm R. Garbe <garbeam at gmail dot com> */
 
 #include "config.h"
 #include <X11/Xlib.h>
@@ -62,9 +60,9 @@ extern void unmanage(Client *c);                        /* destroy c */
 extern void grabkeys(void); /* grab all keys defined in config.h */
 
 /* main.c */
-extern void quit(Arg *arg);                             /* quit 2wm nicely */
+extern void quit(Arg *arg);                             /* quit cswm nicely */
 extern void sendevent(Window w, Atom a, long value);    /* send synthetic event to w */
-extern int xerror(Display *dsply, XErrorEvent *ee);     /* 2wm's X error handler */
+extern int xerror(Display *dsply, XErrorEvent *ee);     /* cswm's X error handler */
 
 /* util.c */
 extern void *emallocz(unsigned int size);       /* allocates zero-initialized memory, exits on error */

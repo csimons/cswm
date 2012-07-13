@@ -1,8 +1,6 @@
-/* (C)opyright MMVI-MMVII Anselm R. Garbe <garbeam at gmail dot com>
- * See LICENSE file for license details.
- */
+/* Copyright 2006-2007 Anselm R. Garbe <garbeam at gmail dot com> */
 
-#include "2wm.h"
+#include "cswm.h"
 #include <errno.h>
 #include <locale.h>
 #include <stdio.h>
@@ -128,7 +126,7 @@ xerror(Display *dpy, XErrorEvent *ee) {
             || (ee->request_code == X_GrabKey && ee->error_code == BadAccess)
             || (ee->request_code == X_CopyArea && ee->error_code == BadDrawable))
         return 0;
-    fprintf(stderr, "2wm: fatal error: request code=%d, error code=%d\n",
+    fprintf(stderr, "cswm: fatal error: request code=%d, error code=%d\n",
         ee->request_code, ee->error_code);
     return xerrorxlib(dpy, ee); /* may call exit */
 }
@@ -143,13 +141,13 @@ main(int argc, char *argv[]) {
     XSetWindowAttributes wa;
 
     if(argc == 2 && !strncmp("-v", argv[1], 3))
-        eprint("2wm-"VERSION", (C)opyright MMVII Anselm R. Garbe\n");
+        eprint("cswm-"VERSION", Copyright 2006 Anselm R. Garbe, 2012 Christopher L. Simons\n");
     else if(argc != 1)
-        eprint("usage: 2wm [-v]\n");
+        eprint("usage: cswm [-v]\n");
     setlocale(LC_CTYPE, "");
     dpy = XOpenDisplay(0);
     if(!dpy)
-        eprint("2wm: cannot open display\n");
+        eprint("cswm: cannot open display\n");
     screen = DefaultScreen(dpy);
     root = RootWindow(dpy, screen);
     otherwm = False;
@@ -158,7 +156,7 @@ main(int argc, char *argv[]) {
     XSelectInput(dpy, root, SubstructureRedirectMask);
     XSync(dpy, False);
     if(otherwm)
-        eprint("2wm: another window manager is already running\n");
+        eprint("cswm: another window manager is already running\n");
 
     XSync(dpy, False);
     XSetErrorHandler(NULL);

@@ -1,7 +1,6 @@
-/* (C)opyright MMVI-MMVII Anselm R. Garbe <garbeam at gmail dot com>
- * See LICENSE file for license details.
- */
-#include "2wm.h"
+/* Copyright 2006-2007 Anselm R. Garbe <garbeam at gmail dot com> */
+
+#include "cswm.h"
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -45,7 +44,7 @@ spawn(Arg *arg) {
                 close(ConnectionNumber(dpy));
             setsid();
             execl(shell, shell, "-c", arg->cmd, (char *)NULL);
-            fprintf(stderr, "2wm: execl '%s -c %s'", shell, arg->cmd);
+            fprintf(stderr, "cswm: execl '%s -c %s'", shell, arg->cmd);
             perror(" failed");
         }
         exit(0);
