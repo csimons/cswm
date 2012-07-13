@@ -19,21 +19,21 @@ static Key key[] = { \
    /* modifier          key         function    argument */ \
     { MODKEY|ShiftMask, XK_t,       spawn,      { .cmd = "exec st" } }, \
     { MODKEY|ShiftMask, XK_w,       spawn,      { .cmd = "exec firefox" } }, \
-    { MODKEY,           XK_j,       focusnext,    { 0 } }, \
-    { MODKEY,           XK_k,       focusprev,    { 0 } }, \
-    { MODKEY|ShiftMask, XK_q,       quit,        { 0 } }, \
+    { MODKEY,           XK_j,       focusnext,  { 0 } }, \
+    { MODKEY,           XK_k,       focusprev,  { 0 } }, \
+    { MODKEY|ShiftMask, XK_q,       quit,       { 0 } }, \
 };
     /*
-    { MODKEY,           XK_a,       attach,        { 0 } }, \
-    { MODKEY,           XK_d,       detach,        { 0 } }, \
-    { MODKEY,           XK_Return,  zoom,        { 0 } }, \
-    { MODKEY,           XK_g,       resizemaster,    { .i = 15 } }, \
-    { MODKEY,           XK_s,       resizemaster,    { .i = -15 } }, \
-    { MODKEY,           XK_i,       incnmaster,    { .i = 1 } }, \
-    { MODKEY,           XK_r,       incnmaster,    { .i = -1 } }, \
-    { MODKEY|ShiftMask, XK_c,       killclient,    { 0 } }, \
-    { MODKEY,           XK_space,   toggleview,    { 0 } }, \
-    { MODKEY|ShiftMask, XK_space,   togglefloat,    { 0 } }, \
+    { MODKEY,           XK_a,       attach,       { 0 } }, \
+    { MODKEY,           XK_d,       detach,       { 0 } }, \
+    { MODKEY,           XK_Return,  zoom,         { 0 } }, \
+    { MODKEY,           XK_g,       resizemaster, { .i = 15 } }, \
+    { MODKEY,           XK_s,       resizemaster, { .i = -15 } }, \
+    { MODKEY,           XK_i,       incnmaster,   { .i = 1 } }, \
+    { MODKEY,           XK_r,       incnmaster,   { .i = -1 } }, \
+    { MODKEY|ShiftMask, XK_c,       killclient,   { 0 } }, \
+    { MODKEY,           XK_space,   toggleview,   { 0 } }, \
+    { MODKEY|ShiftMask, XK_space,   togglefloat,  { 0 } }, \
     */
 
 #define FLOATS \
