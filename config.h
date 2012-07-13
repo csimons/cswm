@@ -22,11 +22,11 @@ static Key key[] = { \
    /* modifier          key         function    argument */ \
     { MODKEY|ShiftMask, XK_t,       spawn,      { .cmd = CMD_TERMINAL } }, \
     { MODKEY|ShiftMask, XK_w,       spawn,      { .cmd = CMD_BROWSER  } }, \
-    { MODKEY,           XK_j,       focusnext,  { 0 } }, \
-    { MODKEY,           XK_k,       focusprev,  { 0 } }, \
+    { MODKEY,           XK_Tab,     focusnext,  { 0 } }, \
     { MODKEY|ShiftMask, XK_q,       quit,       { 0 } }, \
 };
     /*
+    { MODKEY,           XK_k,       focusprev,    { 0 } }, \
     { MODKEY,           XK_a,       attach,       { 0 } }, \
     { MODKEY,           XK_d,       detach,       { 0 } }, \
     { MODKEY,           XK_Return,  zoom,         { 0 } }, \
