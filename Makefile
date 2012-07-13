@@ -12,17 +12,13 @@ options:
 	@echo 2wm build options:
 	@echo "CFLAGS   = ${CFLAGS}"
 	@echo "LDFLAGS  = ${LDFLAGS}"
-	@echo "CC       = ${CC}"
+	@echo "CC	   = ${CC}"
 
 .c.o:
 	@echo CC $<
 	@${CC} -c ${CFLAGS} $<
 
-${OBJ}: 2wm.h config.h config.mk
-
-config.h:
-	@echo creating $@ from config.default.h
-	@cp config.default.h $@
+${OBJ}: 2wm.h config.mk
 
 2wm: ${OBJ}
 	@echo CC -o $@
