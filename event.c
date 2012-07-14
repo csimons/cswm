@@ -110,16 +110,8 @@ buttonpress(XEvent *e) {
         focus(c);
         if(CLEANMASK(ev->state) != MODKEY)
             return;
-        if(ev->button == Button1 && c->isfloat) {
-            restack();
-            movemouse(c);
-        }
         else if(ev->button == Button2)
             zoom(NULL);
-        else if(ev->button == Button3 && c->isfloat && !c->isfixed) {
-            restack();
-            resizemouse(c);
-        }
     }
 }
 
@@ -152,13 +144,7 @@ configurerequest(XEvent *e) {
         else
             configure(c);
         XSync(dpy, False);
-        if(c->isfloat) {
-            resize(c, False);
-            if(c->view != view)
-                XMoveWindow(dpy, c->win, c->x + 2 * sw, c->y);
-        }
-        else
-            arrange();
+        arrange();
     }
     else {
         wc.x = ev->x;
@@ -261,8 +247,7 @@ propertynotify(XEvent *e) {
             default: break;
             case XA_WM_TRANSIENT_FOR:
                 XGetTransientForHint(dpy, c->win, &trans);
-                if(!c->isfloat && (c->isfloat = (trans != 0)))
-                    arrange();
+                arrange(); /* CLS: maybe should delete. */
                 break;
             case XA_WM_NORMAL_HINTS:
                 updatesizehints(c);

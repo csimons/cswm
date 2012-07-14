@@ -24,7 +24,7 @@ struct Client {
     int minax, minay, maxax, maxay;
     long flags; 
     unsigned int border;
-    Bool isfixed, isfloat, ismax, view;
+    Bool isfixed, ismax, view;
     Client *next;
     Client *prev;
     Client *snext;

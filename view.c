@@ -77,10 +77,6 @@ arrange(void) {
 
     for(i = 0, c = clients; c; c = c->next)
         if(c->view == view) {
-            if(c->isfloat) {
-                resize(c, True);
-                continue;
-            }
             c->ismax = False;
             c->x = sx;
             c->y = sy;
