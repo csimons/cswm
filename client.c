@@ -16,43 +16,6 @@ detachstack(Client *c) {
 }
 
 static void
-grabbuttons(Client *c, Bool focused) {
-    XUngrabButton(dpy, AnyButton, AnyModifier, c->win);
-
-    if(focused) {
-        XGrabButton(dpy, Button1, MODKEY, c->win, False, BUTTONMASK,
-            GrabModeAsync, GrabModeSync, None, None);
-        XGrabButton(dpy, Button1, MODKEY | LockMask, c->win, False, BUTTONMASK,
-            GrabModeAsync, GrabModeSync, None, None);
-        XGrabButton(dpy, Button1, MODKEY | numlockmask, c->win, False, BUTTONMASK,
-            GrabModeAsync, GrabModeSync, None, None);
-        XGrabButton(dpy, Button1, MODKEY | numlockmask | LockMask, c->win, False, BUTTONMASK,
-            GrabModeAsync, GrabModeSync, None, None);
-
-        XGrabButton(dpy, Button2, MODKEY, c->win, False, BUTTONMASK,
-            GrabModeAsync, GrabModeSync, None, None);
-        XGrabButton(dpy, Button2, MODKEY | LockMask, c->win, False, BUTTONMASK,
-            GrabModeAsync, GrabModeSync, None, None);
-        XGrabButton(dpy, Button2, MODKEY | numlockmask, c->win, False, BUTTONMASK,
-            GrabModeAsync, GrabModeSync, None, None);
-        XGrabButton(dpy, Button2, MODKEY | numlockmask | LockMask, c->win, False, BUTTONMASK,
-            GrabModeAsync, GrabModeSync, None, None);
-
-        XGrabButton(dpy, Button3, MODKEY, c->win, False, BUTTONMASK,
-            GrabModeAsync, GrabModeSync, None, None);
-        XGrabButton(dpy, Button3, MODKEY | LockMask, c->win, False, BUTTONMASK,
-            GrabModeAsync, GrabModeSync, None, None);
-        XGrabButton(dpy, Button3, MODKEY | numlockmask, c->win, False, BUTTONMASK,
-            GrabModeAsync, GrabModeSync, None, None);
-        XGrabButton(dpy, Button3, MODKEY | numlockmask | LockMask, c->win, False, BUTTONMASK,
-            GrabModeAsync, GrabModeSync, None, None);
-    }
-    else
-        XGrabButton(dpy, AnyButton, AnyModifier, c->win, False, BUTTONMASK,
-            GrabModeAsync, GrabModeSync, None, None);
-}
-
-static void
 setclientstate(Client *c, long state) {
     long data[] = {state, None};
     XChangeProperty(dpy, c->win, wmatom[WMState], wmatom[WMState], 32,
@@ -99,14 +62,12 @@ focus(Client *c) {
     if(c && c->view != view)
         return;
     if(sel && sel != c) {
-        grabbuttons(sel, False);
         XSetWindowBorder(dpy, sel->win, normcol);
     }
     if(c) {
         detachstack(c);
         c->snext = stack;
         stack = c;
-        grabbuttons(c, True);
     }
     sel = c;
     if(!selscreen)
@@ -185,7 +146,6 @@ manage(Window w, XWindowAttributes *wa) {
     XSelectInput(dpy, c->win,
         StructureNotifyMask | PropertyChangeMask | EnterWindowMask);
     XGetTransientForHint(dpy, c->win, &trans);
-    grabbuttons(c, False);
     XSetWindowBorder(dpy, c->win, normcol);
     updatetitle(c);
     if((t = getclient(trans)))
