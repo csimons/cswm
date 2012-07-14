@@ -160,15 +160,6 @@ focusprev(Arg *arg) {
 }
 
 void
-incnmaster(Arg *arg) {
-    if((nmaster + arg->i < 1) || (sh / (nmaster + arg->i) <= 2 * BORDERPX))
-        return;
-    nmaster += arg->i;
-    if(sel)
-        arrange();
-}
-
-void
 resizemaster(Arg *arg) {
     if(arg->i == 0)
         master = MASTER;

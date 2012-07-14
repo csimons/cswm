@@ -34,6 +34,4 @@ static Key key[] = { \
     /*
     { MODKEY,           XK_a,       attach,       { 0 } }, \
     { MODKEY,           XK_d,       detach,       { 0 } }, \
-    { MODKEY,           XK_i,       incnmaster,   { .i = 1 } }, \
-    { MODKEY,           XK_r,       incnmaster,   { .i = -1 } }, \
     */

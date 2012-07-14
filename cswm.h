@@ -75,7 +75,6 @@ extern void attach(Arg *arg);       /* attaches most recent detached client to v
 extern void detach(Arg *arg);       /* detaches current client from view */
 extern void focusnext(Arg *arg);    /* focuses next visible client, arg is ignored  */
 extern void focusprev(Arg *arg);    /* focuses previous visible client, arg is ignored */
-extern void incnmaster(Arg *arg);   /* increments nmaster with arg's index value */
 extern void initrregs(void);        /* initialize regexps of rules defined in config.h */
 extern void resizemaster(Arg *arg); /* resizes the master percent with arg's index value */
 extern void restack(void);          /* restores z layers of all clients */
