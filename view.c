@@ -200,12 +200,6 @@ restack(void) {
 }
 
 void
-toggleview(Arg *arg) {
-    view = !view;
-    arrange();
-}
-
-void
 zoom(Arg *arg) {
     unsigned int n;
     Client *c;
