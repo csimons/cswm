@@ -79,5 +79,4 @@ extern void incnmaster(Arg *arg);   /* increments nmaster with arg's index value
 extern void initrregs(void);        /* initialize regexps of rules defined in config.h */
 extern void resizemaster(Arg *arg); /* resizes the master percent with arg's index value */
 extern void restack(void);          /* restores z layers of all clients */
-extern void toggleview(Arg *arg);   /* toggles view */
 extern void zoom(Arg *arg);         /* zooms the focused client to master area, arg is ignored */
