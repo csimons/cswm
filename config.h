@@ -2,6 +2,7 @@
 
 #define CMD_TERMINAL "st"
 #define CMD_BROWSER  "firefox"
+#define CMD_LOCK     "xlock"
 
 #define BORDERPX    2
 #define NORMCOLOR   "#666"
@@ -20,6 +21,7 @@ static Key key[] = { \
    /* modifier          key         function    argument */ \
     { MODKEY|ShiftMask, XK_t,       spawn,      { .cmd = CMD_TERMINAL } }, \
     { MODKEY|ShiftMask, XK_w,       spawn,      { .cmd = CMD_BROWSER  } }, \
+    { MODKEY|ShiftMask, XK_l,       spawn,      { .cmd = CMD_LOCK } }, \
     { MODKEY,           XK_j,       focusnext,  { 0 } }, \
     { MODKEY,           XK_k,       focusprev,  { 0 } }, \
     { MODKEY,           XK_Tab,     focusnext,  { 0 } }, \
