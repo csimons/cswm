@@ -39,6 +39,3 @@ static Key key[] = { \
     { MODKEY,           XK_space,   toggleview,   { 0 } }, \
     { MODKEY|ShiftMask, XK_space,   togglefloat,  { 0 } }, \
     */
-
-#define FLOATS \
-static char *floats[] = { "Gimp.*", "MPlayer.*", "Acroread.*", NULL };

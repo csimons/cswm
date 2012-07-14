@@ -152,8 +152,6 @@ manage(Window w, XWindowAttributes *wa) {
         c->view = t->view;
     else
         c->view = view;
-    if(!(c->isfloat = isfloat(c)))
-        c->isfloat = t || c->isfixed;
     if(clients)
         clients->prev = c;
     c->next = clients;
