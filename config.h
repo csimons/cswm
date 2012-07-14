@@ -37,5 +37,4 @@ static Key key[] = { \
     { MODKEY,           XK_i,       incnmaster,   { .i = 1 } }, \
     { MODKEY,           XK_r,       incnmaster,   { .i = -1 } }, \
     { MODKEY,           XK_space,   toggleview,   { 0 } }, \
-    { MODKEY|ShiftMask, XK_space,   togglefloat,  { 0 } }, \
     */
