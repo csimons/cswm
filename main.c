@@ -191,7 +191,6 @@ main(int argc, char *argv[]) {
     wa.cursor = cursor[CurNormal];
     XChangeWindowAttributes(dpy, root, CWEventMask | CWCursor, &wa);
     grabkeys();
-    initrregs();
     /* style */
     normcol = getcolor(NORMCOLOR);
     selcol = getcolor(SELCOLOR);
