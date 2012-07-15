@@ -1,6 +1,9 @@
 # cswm
 
-A minimalist tiling window manager.
+cswm is a minimalist tiling window manager that splits the screen into
+a larger single-window master area and a smaller (by default)
+window-stacking area; windows can be swapped between areas.  All window
+manipulation is done via keyboard.
 
 This project is a fork of 2wm, which was created by Anselm R. Garbe.
 
