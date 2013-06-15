@@ -60,6 +60,12 @@ cleanup(void) {
 }
 
 static void
+runAutostart(void) {
+    system("~/.config/cswm/autostart_blocking.sh");
+    system("~/.config/cswm/autostart.sh &");
+}
+
+static void
 scan(void) {
     unsigned int i, num;
     Window *wins, d1, d2;
@@ -204,6 +210,7 @@ main(int argc, char *argv[]) {
     /* multihead support */
     selscreen = XQueryPointer(dpy, root, &w, &w, &i, &i, &i, &i, &mask);
     scan();
+    runAutostart();
 
     /* main event loop, also reads status text from stdin */
     XSync(dpy, False);
