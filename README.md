@@ -13,7 +13,7 @@ Modify the following preprocessor variables in config.h as appropriate
 for your system configuration:
 - CMD_TERMINAL (terminal program, defaults to 'st')
 - CMD_BROWSER (web browser, defaults to 'firefox')
-- CMD_LOCK (lock program, defaults to 'xlock')
+- CMD_LOCK (lock program, defaults to 'slock')
 
 Then build/install from the Makefile as desired.
 

@@ -2,7 +2,7 @@
 
 #define CMD_TERMINAL "st"
 #define CMD_BROWSER  "firefox"
-#define CMD_LOCK     "xlock"
+#define CMD_LOCK     "slock"
 
 #define BORDERPX    2
 #define NORMCOLOR   "#666"
